@@ -9,12 +9,10 @@ namespace TMSLesson3Library
 {
     public class CalculatorLauncher
     {
-        private ICalculator _calculator;
+        private IMathOperator _mathOperator;
         private bool flag = true;
-        public CalculatorLauncher(ICalculator calculator)
-        {
-            _calculator = calculator;
-        }
+        
+        public void SetOperator(IMathOperator mathOperator) => _mathOperator = mathOperator;
         public void Launch()
         {
             while (flag)
@@ -38,57 +36,29 @@ namespace TMSLesson3Library
                     Console.WriteLine("Введите знак действия: ");
                     Console.ForegroundColor = ConsoleColor.White;
                     string action = InputValidator.ActionValidator(Console.ReadLine());
-                    Console.ForegroundColor = ConsoleColor.Green;
+                    
                     switch (action)
                     {
                         case "+":
-                            Console.WriteLine("Введите второе число");
-                            Console.ForegroundColor = ConsoleColor.White;
-                            b = InputValidator.FloatValidator(Console.ReadLine());
-                            InputValidator.ExpressionValidator(a, b, action);
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.WriteLine($"{a} + {b} = {_calculator.Sum(a, b)}");
+                            SetOperator(new Sum(a));
                             break;
                         case "-":
-                            Console.WriteLine("Введите второе число");
-                            Console.ForegroundColor = ConsoleColor.White;
-                            b = InputValidator.FloatValidator(Console.ReadLine());
-                            InputValidator.ExpressionValidator(a, b, action);
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.WriteLine($"{a} - {b} = {_calculator.Subtraction(a, b)}");
+                            SetOperator(new Subtraction(a));
                             break;
                         case "*":
-                            Console.WriteLine("На какое число вы хотите умножить?");
-                            Console.ForegroundColor = ConsoleColor.White;
-                            b = InputValidator.FloatValidator(Console.ReadLine());
-                            InputValidator.ExpressionValidator(a, b, action);
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.WriteLine($"{a} * {b} = {_calculator.Multiplication(a, b)}");
+                            SetOperator(new Multiplication(a));
                             break;
                         case "/":
-                            Console.WriteLine("На какое число вы хотите поделить?");
-                            Console.ForegroundColor = ConsoleColor.White;
-                            b = InputValidator.FloatValidator(Console.ReadLine());
-                            InputValidator.ExpressionValidator(a, b, action);
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.WriteLine($"{a} / {b} = {_calculator.Division(a, b)}");
+                            SetOperator(new Division(a));
                             break;
                         case "%":
-                            Console.WriteLine("Процент от какого числа вы хотите узнать?");
-                            Console.ForegroundColor = ConsoleColor.White;
-                            b = InputValidator.FloatValidator(Console.ReadLine());
-                            InputValidator.ExpressionValidator(a, b, action);
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.WriteLine($"Число {a} составляет {_calculator.Percentage(a, b)}% от числа {b}");
+                            SetOperator(new Percentage(a));
                             break;
                         case "sqrt":
-                            InputValidator.ExpressionValidator(a, action);
-                            Console.ForegroundColor = ConsoleColor.Yellow;
-                            Console.WriteLine($"Корень квадратный числа {a} = { _calculator.Sqrt(a)}");
+                            SetOperator(new Sqrt(a));
                             break;
-
-
                     }
+                    _mathOperator.Solve();
                 }
                 catch (Exception ex)
                 {
@@ -96,10 +66,7 @@ namespace TMSLesson3Library
                     Console.WriteLine(ex.Message);
                     Console.ForegroundColor = ConsoleColor.White;
                 }
-                Console.ForegroundColor = ConsoleColor.White;
                 flag = IsNeedRestart();
-
-
             }
         }
         public static bool IsNeedRestart()
