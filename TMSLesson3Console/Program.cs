@@ -7,7 +7,7 @@ namespace TMSLesson3Console
 
         static void Main(string[] args)
         {
-            CalculatorLauncher calculatorLauncher = new CalculatorLauncher(new Calculator());
+            CalculatorLauncher calculatorLauncher = new CalculatorLauncher();
             calculatorLauncher.Launch();
 
             
