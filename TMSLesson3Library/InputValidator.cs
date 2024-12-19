@@ -17,7 +17,7 @@ namespace TMSLesson3Library
                 return output;
             }
 
-            throw new Exception("это не число");
+            throw new Exception("это не число"); 
         }
         static public string ActionValidator(string a)
         {
