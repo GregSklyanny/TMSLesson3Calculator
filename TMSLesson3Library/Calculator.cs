@@ -1,6 +1,7 @@
 ﻿using System;
 using static System.Collections.Specialized.BitVector32;
 
+
 namespace TMSLesson3Library
 {
     public class Sum : IMathOperator
