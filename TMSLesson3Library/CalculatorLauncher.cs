@@ -65,7 +65,7 @@ namespace TMSLesson3Library
                             Console.WriteLine($"{a} * {b} = {_calculator.Multiplication(a, b)}");
                             break;
                         case "/":
-                            Console.WriteLine("На какое число вы хотите поедлить?");
+                            Console.WriteLine("На какое число вы хотите поделить?");
                             Console.ForegroundColor = ConsoleColor.White;
                             b = InputValidator.FloatValidator(Console.ReadLine());
                             InputValidator.ExpressionValidator(a, b, action);
@@ -96,10 +96,25 @@ namespace TMSLesson3Library
                     Console.ForegroundColor = ConsoleColor.White;
                 }
                 Console.ForegroundColor = ConsoleColor.White;
-                flag = InputValidator.IsNeedRestart();
+                flag = IsNeedRestart();
 
 
             }
+        }
+        public static bool IsNeedRestart()
+        {
+            string str = string.Empty;
+            ConsoleKey consoleKey;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Начать заново? y - начать заново, n - выйти из программы");
+            Console.ForegroundColor = ConsoleColor.White;
+            while (true)
+            {
+                consoleKey = Console.ReadKey().Key;
+                if (consoleKey == ConsoleKey.Y) return true;
+                if (consoleKey == ConsoleKey.N) return false;
+            }
+            return false;
         }
     }
 }
