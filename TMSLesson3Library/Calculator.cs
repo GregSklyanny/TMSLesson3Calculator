@@ -3,7 +3,6 @@
     public class Calculator : ICalculator
     {
         
-
         public float Division(float a, float b)
         {
             return a / b;
