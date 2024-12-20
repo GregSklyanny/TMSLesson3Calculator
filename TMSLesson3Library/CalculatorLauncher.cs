@@ -17,7 +17,7 @@ namespace TMSLesson3Library
         {
             while (flag)
             {
-                float a, b;
+                float a = 0 , b = 0;
 
                 try
                 {
@@ -37,28 +37,46 @@ namespace TMSLesson3Library
                     Console.ForegroundColor = ConsoleColor.White;
                     string action = InputValidator.ActionValidator(Console.ReadLine());
                     
+                    if(action != "sqrt")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("Введите второе число");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        b = InputValidator.FloatValidator(Console.ReadLine());
+                        InputValidator.ExpressionValidator(a, b, action);
+                    }
+                    else
+                    {
+                        InputValidator.ExpressionValidator(a, action);
+                    }
+                    
+
                     switch (action)
                     {
                         case "+":
-                            SetOperator(new Sum(a));
+                            SetOperator(new SumOperator(new float[] {a, b}));
                             break;
                         case "-":
-                            SetOperator(new Subtraction(a));
+                            SetOperator(new SubtractionOperator(new float[] { a, b }));
                             break;
                         case "*":
-                            SetOperator(new Multiplication(a));
+                            SetOperator(new MultiplicationOperator(new float[] { a, b }));
                             break;
+
                         case "/":
-                            SetOperator(new Division(a));
+                            SetOperator(new DivisionOperator(new float[] { a, b }));
                             break;
                         case "%":
-                            SetOperator(new Percentage(a));
+                            SetOperator(new PercentageOperator(new float[] { a, b }));
                             break;
                         case "sqrt":
-                            SetOperator(new Sqrt(a));
+                            SetOperator(new SqrtOperator(new float[] {a}));
                             break;
                     }
-                    _mathOperator.Solve();
+                    string answer = _mathOperator.Solve();
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.WriteLine(answer);
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
                 catch (Exception ex)
                 {

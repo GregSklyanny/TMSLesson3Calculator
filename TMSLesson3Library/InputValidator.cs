@@ -22,7 +22,7 @@ namespace TMSLesson3Library
         {
             float output;
             
-            if(float.TryParse(a.Trim().Replace(',','.'), out output))
+            if(float.TryParse(a.Trim().Replace('.',','), out output))
             {
                 return output;
             }

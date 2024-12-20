@@ -8,7 +8,7 @@ namespace TMSLesson3Library
 {
     public interface IMathOperator
     {
-        void Solve();
+        public string Solve();
                
     }
 }
