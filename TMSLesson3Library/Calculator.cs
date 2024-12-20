@@ -7,11 +7,10 @@ namespace TMSLesson3Library
     public class SumOperator : IMathOperator
     {
         private float a, b;
-        public  SumOperator(float[] args)
+        public  SumOperator(float a, float b)
         {
-            if (args.Length < 2) throw new ArgumentException("Ошибка количества аргументов");
-            this.a = args[0];
-            this.b = args[1];
+            this.a = a;
+            this.b = b;
         }
 
         public string Solve() => $"{a} + {b} = {a + b}";
@@ -20,11 +19,10 @@ namespace TMSLesson3Library
     public class SubtractionOperator : IMathOperator
     {
         private float a, b;
-        public SubtractionOperator(float[] args)
+        public SubtractionOperator(float a, float b)
         {
-            if (args.Length < 2) throw new ArgumentException("Ошибка количества аргументов");
-            this.a = args[0];
-            this.b = args[1];
+            this.a = a;
+            this.b = b;
         }
         public string Solve() => $"{a} - {b} = {a - b}";
     }
@@ -32,11 +30,10 @@ namespace TMSLesson3Library
     public class MultiplicationOperator : IMathOperator
     {
         private float a, b;
-        public MultiplicationOperator(float[] args)
+        public MultiplicationOperator(float a, float b)
         {
-            if (args.Length < 2) throw new ArgumentException("Ошибка количества аргументов");
-            this.a = args[0];
-            this.b = args[1];
+            this.a = a;
+            this.b = b;
         }
         public string Solve() => $"{a} * {b} = {a * b}";
     }
@@ -44,11 +41,10 @@ namespace TMSLesson3Library
     public class DivisionOperator : IMathOperator
     {
         private float a, b;
-        public DivisionOperator(float[] args)
+        public DivisionOperator(float a, float b)
         {
-            if (args.Length < 2) throw new ArgumentException("Ошибка количества аргументов");
-            this.a = args[0];
-            this.b = args[1];
+            this.a = a;
+            this.b = b;
         }
         public string Solve() => $"{a} / {b} = {a / b}";
     }
@@ -56,11 +52,10 @@ namespace TMSLesson3Library
     public class PercentageOperator : IMathOperator
     {
         private float a, b;
-        public PercentageOperator(float[] args)
+        public PercentageOperator(float a, float b)
         {
-            if (args.Length < 2) throw new ArgumentException("Ошибка количества аргументов");
-            this.a = args[0];
-            this.b = args[1];
+            this.a = a;
+            this.b = b;
         }
         public string Solve() => $"Число {a} составляет {a * 100 / b}% от числа {b}";
     }
@@ -68,10 +63,9 @@ namespace TMSLesson3Library
     public class SqrtOperator : IMathOperator
     {
         private float a;
-        public SqrtOperator(float[] args)
+        public SqrtOperator(float a)
         {
-            if (args.Length < 1) throw new ArgumentException("Ошибка количества аргументов");
-            this.a = args[0];
+            this.a = a;
         }
 
         public string Solve() => $"Корень квадратный числа {a} = {Math.Sqrt(a)}";

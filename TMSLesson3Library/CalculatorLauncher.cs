@@ -54,23 +54,23 @@ namespace TMSLesson3Library
                     switch (action)
                     {
                         case "+":
-                            SetOperator(new SumOperator(new float[] {a, b}));
+                            SetOperator(new SumOperator(a, b));
                             break;
                         case "-":
-                            SetOperator(new SubtractionOperator(new float[] { a, b }));
+                            SetOperator(new SubtractionOperator(a, b));
                             break;
                         case "*":
-                            SetOperator(new MultiplicationOperator(new float[] { a, b }));
+                            SetOperator(new MultiplicationOperator(a, b));
                             break;
 
                         case "/":
-                            SetOperator(new DivisionOperator(new float[] { a, b }));
+                            SetOperator(new DivisionOperator(a, b));
                             break;
                         case "%":
-                            SetOperator(new PercentageOperator(new float[] { a, b }));
+                            SetOperator(new PercentageOperator(a, b));
                             break;
                         case "sqrt":
-                            SetOperator(new SqrtOperator(new float[] {a}));
+                            SetOperator(new SqrtOperator(a));
                             break;
                     }
                     string answer = _mathOperator.Solve();
