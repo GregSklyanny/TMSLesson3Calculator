@@ -1,118 +1,74 @@
 ﻿using System;
 using static System.Collections.Specialized.BitVector32;
 
+
 namespace TMSLesson3Library
 {
-    public class Sum : IMathOperator
+    public class SumOperator : IMathOperator
     {
         private float a, b;
-        public Sum(float a)
+        public  SumOperator(float a, float b)
         {
             this.a = a;
+            this.b = b;
         }
-        public void Solve()
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Введите второе число");
-            Console.ForegroundColor = ConsoleColor.White;
-            b = InputValidator.FloatValidator(Console.ReadLine());
-            InputValidator.ExpressionValidator(a, b, "+");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"{a} + {b} = {a+b}");
-            Console.ForegroundColor = ConsoleColor.White;
-        }
+
+        public string Solve() => $"{a} + {b} = {a + b}";
     }
-    public class Subtraction : IMathOperator
+
+    public class SubtractionOperator : IMathOperator
     {
         private float a, b;
-        public Subtraction(float a)
+        public SubtractionOperator(float a, float b)
         {
             this.a = a;
+            this.b = b;
         }
-        public void Solve()
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Введите второе число");
-            Console.ForegroundColor = ConsoleColor.White;
-            b = InputValidator.FloatValidator(Console.ReadLine());
-            InputValidator.ExpressionValidator(a, b, "-");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"{a} - {b} = {a - b}");
-            Console.ForegroundColor = ConsoleColor.White;
-        }
+        public string Solve() => $"{a} - {b} = {a - b}";
     }
-    public class Multiplication : IMathOperator
+
+    public class MultiplicationOperator : IMathOperator
     {
         private float a, b;
-        public Multiplication(float a)
+        public MultiplicationOperator(float a, float b)
         {
             this.a = a;
+            this.b = b;
         }
-        public void Solve()
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("На какое число вы хотите умножить?");
-            Console.ForegroundColor = ConsoleColor.White;
-            b = InputValidator.FloatValidator(Console.ReadLine());
-            InputValidator.ExpressionValidator(a, b, "*");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"{a} * {b} = {a*b}");
-            Console.ForegroundColor = ConsoleColor.White;
-        }
+        public string Solve() => $"{a} * {b} = {a * b}";
     }
-    public class Division : IMathOperator
+
+    public class DivisionOperator : IMathOperator
     {
         private float a, b;
-        public Division(float a)
+        public DivisionOperator(float a, float b)
         {
             this.a = a;
+            this.b = b;
         }
-        public void Solve()
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("На какое число вы хотите поделить?");
-            Console.ForegroundColor = ConsoleColor.White;
-            b = InputValidator.FloatValidator(Console.ReadLine());
-            InputValidator.ExpressionValidator(a, b, "/");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"{a} / {b} = {a / b}");
-            Console.ForegroundColor = ConsoleColor.White;
-        }
+        public string Solve() => $"{a} / {b} = {a / b}";
     }
-    public class Percentage : IMathOperator
+
+    public class PercentageOperator : IMathOperator
     {
         private float a, b;
-        public Percentage(float a)
+        public PercentageOperator(float a, float b)
         {
             this.a = a;
+            this.b = b;
         }
-        public void Solve()
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Процент от какого числа вы хотите узнать?");
-            Console.ForegroundColor = ConsoleColor.White;
-            b = InputValidator.FloatValidator(Console.ReadLine());
-            InputValidator.ExpressionValidator(a, b, "%");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"Число {a} составляет {a*100/b}% от числа {b}");
-            Console.ForegroundColor = ConsoleColor.White;
-        }
+        public string Solve() => $"Число {a} составляет {a * 100 / b}% от числа {b}";
     }
-    public class Sqrt : IMathOperator
+
+    public class SqrtOperator : IMathOperator
     {
         private float a;
-        public Sqrt(float a)
+        public SqrtOperator(float a)
         {
             this.a = a;
         }
 
-        public void Solve()
-        {
-            InputValidator.ExpressionValidator(a, "sqrt");
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine($"Корень квадратный числа {a} = {Math.Sqrt(a)}");
-            Console.ForegroundColor = ConsoleColor.White;
+        public string Solve() => $"Корень квадратный числа {a} = {Math.Sqrt(a)}";
         }
-    }
 
 }

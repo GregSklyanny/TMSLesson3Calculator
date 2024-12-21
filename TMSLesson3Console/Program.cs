@@ -9,8 +9,6 @@ namespace TMSLesson3Console
         {
             CalculatorLauncher calculatorLauncher = new CalculatorLauncher();
             calculatorLauncher.Launch();
-
-            
         }
     }
 }

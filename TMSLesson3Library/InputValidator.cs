@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace TMSLesson3Library
 {
     public class InputValidator
@@ -21,7 +22,7 @@ namespace TMSLesson3Library
         {
             float output;
             
-            if(float.TryParse(a.Trim().Replace(',','.'), out output))
+            if(float.TryParse(a.Trim().Replace('.',','), out output))
             {
                 return output;
             }
